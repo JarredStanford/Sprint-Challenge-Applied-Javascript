@@ -1,8 +1,20 @@
 class Carousel {
-
+  constructor(element) {
+    this.element = element;
+    console.log(this.element);
+    this.data = element.dataset.tab;
+    this.slide = document.querySelector(`.carousel img[data-tab=${this.data}]`);
+    console.log(this.slide);
+  }
 }
 
-let carousel = document.querySelector();
+var carousel = document.querySelectorAll(".carousel img");
+//var rightButton = carousel.querySelector(".right-button");
+//var leftButton = carousel.querySelector(".left-button");
+//var items = box.querySelectorAll(".content li");
+
+carousel.forEach(ride => new Carousel(ride));
+console.log(carousel);
 
 /* If You've gotten this far, you're on your own! Although we will give you some hints:
     1. You will need to grab a reference to the carousel, and in it grab the left and right buttons

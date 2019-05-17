@@ -2,7 +2,6 @@ class TabLink {
   constructor(tabElement) {
     // assign this.tabElement to the tabElement DOM reference
     this.tabElement = tabElement;
-
     // Get the `data-tab` value from this.tabElement and store it here
     this.tabData = tabElement.dataset.tab;
 
@@ -20,7 +19,6 @@ class TabLink {
       );
     }
     //<- Delete this comment block when you work on the if statement
-
     // Map over the newly converted NodeList we just created in our if statement above. Convert each this.cards element into a new instance of the TabCard class. Pass in a card object to the TabCard class.
     this.cardItems = Array.from(this.cards).map(card => {
       return new TabCard(this.cards);
@@ -72,8 +70,26 @@ class TabCard {
 class Tabs {
   constructor() {
     let tabs = document.querySelectorAll(".tab");
-
     tabs.forEach(tab => new TabLink(tab));
   }
 }
 new Tabs();
+
+class Carousel {
+  constructor(element) {
+    this.element = element;
+    console.log(this.element);
+    leftButton.addEventListener(
+      "click",
+      () =>
+        function() {
+          this.element.style.display = "flex";
+        }
+    );
+  }
+}
+
+let carousel = document.querySelectorAll(".carousel img");
+let rightButton = document.querySelector(".right-button");
+let leftButton = document.querySelector(".left-button");
+carousel.forEach(ride => new Carousel(ride));
