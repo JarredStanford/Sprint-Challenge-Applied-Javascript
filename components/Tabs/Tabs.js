@@ -78,18 +78,15 @@ new Tabs();
 class Carousel {
   constructor(element) {
     this.element = element;
-    console.log(this.element);
-    leftButton.addEventListener(
-      "click",
-      () =>
-        function() {
-          this.element.style.display = "flex";
-        }
-    );
+    this.data = element.dataset.ride;
+    let leftButton = document.querySelector(".left-button");
+    leftButton.addEventListener("click", () => this.selectSlide());
+  }
+  selectSlide() {
+    this.element.style.display = "flex";
   }
 }
 
 let carousel = document.querySelectorAll(".carousel img");
 let rightButton = document.querySelector(".right-button");
-let leftButton = document.querySelector(".left-button");
 carousel.forEach(ride => new Carousel(ride));
